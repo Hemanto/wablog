@@ -1,22 +1,28 @@
 import React from 'react'
-import Img from '../assets/images/img-9.jpg'
 import { Link } from "react-router-dom";
+import './Styles/Blogs.css'
+import BlogCard from './BlogCard'
 
 const Blogs = (props) => {
+    const path = `/details/${props.item.id}`;
     return (
-        <Link to={`/details/${props.item.id}`}>
-            <div>
-                <img src={props.item.author.image.url} alt="img" />
-                <img src={Img} alt="" />
-                <h2>{props.item.title}</h2>
-                <p>{props.item.published}</p>
-                {/* <div
-                dangerouslySetInnerHTML={{
-                    __html: props.item.content
-                }}></div> */}
-                {/* <p>{props.item.content} </p> */}
+        <div className="blog-container">
+            <div className="blog-wrapper">
+                <ul className='blog-items'>
+                    <img src={props.item.cover_image} alt="ok
+                    " />
+                    {/* <img src={props.item.image} alt="img" width='400' />
+                        <h2>{props.item.text}</h2>
+                        <p>{props.item.published}</p>
+
+                    {/* <BlogCard
+                        path={path}
+                        src={props.item.image}
+                        text={props.item.text}
+                    /> */}
+                </ul>
             </div>
-        </Link >
+        </div>
     )
 }
 

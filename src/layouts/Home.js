@@ -7,12 +7,14 @@ import axios from "axios";
 
 const Home = () => {
     const [blog, setBlog] = useState([])
+
     useEffect(() => {
-        axios.get('https://www.googleapis.com/blogger/v3/blogs/3213900/posts?key=AIzaSyCbvs4V0iq625mBvxRFHPXJjlql6EGiyW0')
+        // axios.get('https://dummyapi.io/data/api/post', { headers: { 'app-id': '600a381e88616a762eac328a' } })
+        axios.get('http://localhost:8000/blog/')
             .then(function (response) {
                 // handle success
-
-                setBlog(response.data.items)
+                console.log(response.data);
+                setBlog(response.data)
             })
             .catch(function (error) {
                 // handle error
@@ -27,6 +29,7 @@ const Home = () => {
     return (
         <div style={{ marginTop: 50 }}>
             {blog.map(item => <Blogs key={item.id} item={item} />)}
+            {/* <img src={require('../assets/images/img.png')} alt="ok" /> */}
         </div>
     )
 }
