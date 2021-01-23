@@ -4,7 +4,7 @@ import '../Styles/Blogs.css'
 import BlogCard from './BlogCard'
 
 const Blogs = (props) => {
-    const path = `/blog/${props.item.title}`;
+    const path = `/blog/${props.item.slug}`;
     return (
         <div className="blog-container">
             <div className="blog-wrapper">
