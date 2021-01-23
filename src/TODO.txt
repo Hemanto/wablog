@@ -1,3 +1,9 @@
 1. Create page where we can see the All blogs.
 2. Details page. on refresh dont change the content.
-3. Fav section add and remove button
+    1. Lazy Loading for cover image like Medium
+3. Fav section with add and remove button
+    1. search box inside the list
+4. Bookmark the content been read through TAG.
+5. Social login.
+6. Search box
+7. Like and comment for each blog.

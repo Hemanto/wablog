@@ -13,7 +13,6 @@ const Home = () => {
         axios.get('http://localhost:8000/blog/')
             .then(function (response) {
                 // handle success
-                console.log(response.data);
                 setBlog(response.data)
             })
             .catch(function (error) {

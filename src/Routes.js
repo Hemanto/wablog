@@ -12,7 +12,7 @@ const Routes = () => {
         < Router >
             <Nav />
             <Switch>
-                <Route path='/Details/:id' exact component={Details} />
+                <Route path='/blog/:title' exact component={Details} />
                 <Route path='/Favourites' exact component={Favourites} />
                 <Route path='/ReadLater' exact component={ReadLater} />
                 <Route path='/' exact component={Home} />
