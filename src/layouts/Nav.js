@@ -16,6 +16,9 @@ const Nav = () => {
                     <li className="nav-item">
                         <Link to='/read-later' className="nav-link">Read Later</Link>
                     </li>
+                    <li className="nav-search">
+                        <input type="text" placeholder='Search here...' />
+                    </li>
                 </ul>
             </div>
         </nav>

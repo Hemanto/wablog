@@ -13,7 +13,7 @@ const Routes = () => {
             <Nav />
             <Switch>
                 <Route path='/blog/:slug' exact component={Details} />
-                <Route path='/Favourites' exact component={Favourites} />
+                <Route path='/Favourite' exact component={Favourites} />
                 <Route path='/ReadLater' exact component={ReadLater} />
                 <Route path='/' exact component={Home} />
             </Switch>

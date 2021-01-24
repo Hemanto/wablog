@@ -4,7 +4,7 @@ import '../Styles/BlogDetails.css'
 const Details = () => {
     const [allpost, setAllpost] = useState(JSON.parse(localStorage.getItem('All-Post')) || [])
     const { slug } = useParams()
-    const index = allpost.find((item) => item.slug == slug)
+    const index = allpost.find((item) => item.slug === slug)
     return (
         <div className='details'>
             <h1>{index.title}</h1>

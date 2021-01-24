@@ -30,6 +30,13 @@
 .nav-item {
     height: 50px;
 }
+
+.nav-search {
+    margin-top: 20px;
+    margin-right: 0;
+    padding-right: 0;
+}
+
 .nav-link {
     text-decoration: none;
     color: #fff;

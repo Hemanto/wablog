@@ -5,26 +5,41 @@ import Footer from './Footer'
 import axios from "axios";
 
 
+
 const Home = () => {
     const [blog, setBlog] = useState([])
 
     useEffect(() => {
         // axios.get('https://dummyapi.io/data/api/post', { headers: { 'app-id': '600a381e88616a762eac328a' } })
-        axios.get('http://localhost:8000/blog/')
-            .then(function (response) {
-                // handle success
-                setBlog(response.data)
-            })
-            .catch(function (error) {
-                // handle error
-                console.log(error);
-            })
-            .then(function () {
-                // always executed
-            });
+
+        const checklocal = JSON.parse(localStorage.getItem('All-Post'))
+        console.log(checklocal);
+        try {
+            if (checklocal.length === 0) {
+                axios.get('http://localhost:8000/blog/')
+                    .then(function (response) {
+                        // handle success
+                        setBlog(response.data)
+
+                    })
+                    .catch(function (error) {
+                        // handle error
+                        console.log(error);
+                    })
+                    .then(function () {
+                        // always executed
+                    });
+                // console.log("hii");
+                localStorage.setItem('All-Post', JSON.stringify(blog));
+            } else {
+                // console.log("hiiiiiiiiiiii");
+                setBlog(checklocal)
+            }
+        } catch (error) {
+            console.log(error);
+        }
 
     }, [])
-    localStorage.setItem('All-Post', JSON.stringify(blog))
     return (
         <div style={{ marginTop: 50 }}>
             {blog.map(item => <Blogs key={item.id} item={item} />)}
