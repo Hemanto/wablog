@@ -14,7 +14,7 @@ const Nav = () => {
                         <Link to='/favourite' className="nav-link">Favourites</Link>
                     </li>
                     <li className="nav-item">
-                        <Link to='/read-later' className="nav-link">Read Later</Link>
+                        <Link to='/ReadLater' className="nav-link">Read Later</Link>
                     </li>
                     <li className="nav-search">
                         <input type="text" placeholder='Search here...' />

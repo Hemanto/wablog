@@ -1,38 +1,32 @@
 import React, { useEffect, useState } from 'react'
 import Blogs from '../components/Blogs'
-import Nav from './Nav'
-import Footer from './Footer'
 import axios from "axios";
+import { useSelector, useDispatch } from "react-redux";
+import { valueUpdate } from "../store/actions/Action";
 
 
 
 const Home = () => {
     const [blog, setBlog] = useState([])
-
+    const state = useSelector(state => state.FetchAPI)
+    console.log('print', state);
+    const dispatch = useDispatch()
     useEffect(() => {
-        // axios.get('https://dummyapi.io/data/api/post', { headers: { 'app-id': '600a381e88616a762eac328a' } })
-
         const checklocal = JSON.parse(localStorage.getItem('All-Post'))
         console.log(checklocal);
         try {
-            if (checklocal.length === 0) {
+            if (state) {
                 axios.get('http://localhost:8000/blog/')
                     .then(function (response) {
-                        // handle success
                         setBlog(response.data)
-
+                        dispatch(valueUpdate(response.data))
+                        //console.log(setBlog);
                     })
                     .catch(function (error) {
-                        // handle error
                         console.log(error);
                     })
-                    .then(function () {
-                        // always executed
-                    });
-                // console.log("hii");
                 localStorage.setItem('All-Post', JSON.stringify(blog));
             } else {
-                // console.log("hiiiiiiiiiiii");
                 setBlog(checklocal)
             }
         } catch (error) {
@@ -41,10 +35,12 @@ const Home = () => {
 
     }, [])
     return (
-        <div style={{ marginTop: 50 }}>
-            {blog.map(item => <Blogs key={item.id} item={item} />)}
-            {/* <img src={require('../assets/images/img.png')} alt="ok" /> */}
-        </div>
+        <>
+            <button>old to new</button>
+            <div style={{ marginTop: 50 }}>
+                {blog.map(item => <Blogs key={item.id} item={item} />)}
+            </div>
+        </>
     )
 }
 

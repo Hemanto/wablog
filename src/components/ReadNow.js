@@ -1,9 +1,6 @@
 import React from 'react'
-import { Link } from "react-router-dom";
-import '../Styles/Blogs.css'
 import BlogCard from './BlogCard'
-
-const Blogs = (props) => {
+const ReadNow = (props) => {
     const path = `/blog/${props.item.slug}`;
     return (
         <div className="blog-container">
@@ -21,4 +18,4 @@ const Blogs = (props) => {
     )
 }
 
-export default Blogs
+export default ReadNow
