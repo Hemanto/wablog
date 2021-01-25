@@ -1,9 +1,15 @@
-import React from 'react'
+import React, {useState} from 'react'
 import { Link } from 'react-router-dom'
 import '../Styles/Blogs.css'
+import Read from '../assets/read.svg'
+import UnRead from '../assets/unread.svg'
 
 
 function BlogCard(props) {
+    const [click, setclick] = useState(false);
+    const toggleIcon = () => {
+        setclick(!click);
+    }
     return (
         <div>
             <li className='blog-list'>
@@ -14,11 +20,15 @@ function BlogCard(props) {
                     <div className="blog-info">
                         <h5 className="blog-text">{props.text}</h5>
                     </div>
-                    <div className="blog-btn">
-                        <i className="fa fa-check-square-o"></i>
-                        {/* <button>Read know</button> */}
-                    </div>
                 </Link>
+                <div className="blog-btn">
+                    <Link to='' target='' onClick={toggleIcon}>
+                        {/* <i className={click ? "fa fa-calendar-times-o" : 'fa fa-calendar-check-o'}></i> */}
+                        <img  className='icon-img' src={click ? Read : UnRead} alt=""/>
+                        
+                        {/* <button>Read know</button> */}
+                    </Link>
+                </div>
             </li>
         </div>
     )
