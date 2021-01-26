@@ -11,9 +11,15 @@ function BlogCard(props) {
     const [click, setclick] = useState(false);
     const FetchAPI = useSelector(state => state.FetchAPI)
     const ids = props.id
+    var readL = false;
     const dispatch = useDispatch()
 
     const toggleIcon = (id) => {
+        if (click) {
+            readL = true;
+        } else {
+            readL = false;
+        }
         setclick(!click);
         const index = FetchAPI.post.find((item) => item.id === ids)
         console.log(index);
@@ -33,7 +39,7 @@ function BlogCard(props) {
                 <div className="blog-btn">
                     <Link to='' target='' onClick={(ids) => toggleIcon(ids)}>
                         <p>{props.id}</p>
-                        <img className='icon-img' src={click ? Read : UnRead} alt="" />
+                        <img className='icon-img' src={(click || readL) ? Read : UnRead} alt="" />
                     </Link>
                 </div>
             </li>
