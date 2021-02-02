@@ -6,6 +6,7 @@ import Favourites from './layouts/Favourites'
 import ReadLater from './layouts/ReadLater'
 import Details from './layouts/Details'
 import Footer from './layouts/Footer'
+import Login from './layouts/Login'
 
 const Routes = () => {
     return (
@@ -15,6 +16,7 @@ const Routes = () => {
                 <Route path='/blog/:slug' exact component={Details} />
                 <Route path='/Favourite' exact component={Favourites} />
                 <Route path='/ReadLater' exact component={ReadLater} />
+                <Route path='/Login' exact component={Login} />
                 <Route path='/' exact component={Home} />
             </Switch>
             <Footer />
