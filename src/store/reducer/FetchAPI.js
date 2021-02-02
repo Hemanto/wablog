@@ -7,7 +7,9 @@ const initialState = {
 const FetchAPI = (state = initialState, action) => {
     switch (action.type) {
         case VALUE_UPDATE:
-            return { ...state, post: action.data };
+            // action.data => map => return {...item, bookmark: false}
+            const updatedData = action.data.map(item => ({ ...item, bookMark: false }))
+            return { ...state, post: updatedData };
         default:
             return state;
     }

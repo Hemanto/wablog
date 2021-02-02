@@ -7,3 +7,15 @@
 5. Social login.
 6. Search box
 7. Like and comment for each blog.
+
+
+8. Search: key stock otherwise on enter API call.
+9. Authonication 
+user mdle
+create user profile
+user id password
+
+tocken
+
+google firebase
+
