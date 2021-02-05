@@ -7,6 +7,7 @@ const initialState = {
 const ReadLater = (state = initialState, action) => {
     switch (action.type) {
         case READ_LATER:
+            console.log(action.data.bookmark)
             // localStorage.setItem('Readlater', [...state.readLaterPost, action.data])
             return { ...state, readLaterPost: [...state.readLaterPost, action.data] }
         default:

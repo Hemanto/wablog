@@ -7,6 +7,7 @@ import ReadLater from './layouts/ReadLater'
 import Details from './layouts/Details'
 import Footer from './layouts/Footer'
 import Login from './layouts/Login'
+import signin from './layouts/Signin'
 
 const Routes = () => {
     return (
@@ -17,6 +18,7 @@ const Routes = () => {
                 <Route path='/Favourite' exact component={Favourites} />
                 <Route path='/ReadLater' exact component={ReadLater} />
                 <Route path='/Login' exact component={Login} />
+                <Route path='/Sign' exact component={signin} />
                 <Route path='/' exact component={Home} />
             </Switch>
             <Footer />

@@ -19,3 +19,33 @@ tocken
 
 google firebase
 
+Ayan Nandan Goswami, [05.02.21 12:38]
+http://localhost:8000/api/v1/userAPI/sign_up/
+
+Ayan Nandan Goswami, [05.02.21 12:39]
+http://localhost:8000/api/v1/userAPI/login/
+
+Ayan Nandan Goswami, [05.02.21 12:39]
+http://localhost:8000/api/v1/userAPI/logout/
+
+Ayan Nandan Goswami, [05.02.21 12:39]
+http://localhost:8000/api/v1/blogApi/
+
+Ayan Nandan Goswami, [05.02.21 12:40]
+http://localhost:8000/api/v1/blogApi/slug
+
+Ayan Nandan Goswami, [05.02.21 12:40]
+{
+    "username": "admin1",
+    "password": "admin1"
+}
+
+Ayan Nandan Goswami, [05.02.21 12:40]
+{
+    "first_name": "raju",
+    "last_name": "das",
+    "identifier": "admin1",
+    "password": "admin1",
+    "email": "ayan02472@gmail.com",
+    "date_of_birth": "2000-12-19"
+}

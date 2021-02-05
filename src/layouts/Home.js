@@ -9,21 +9,21 @@ import { valueUpdate } from "../store/actions/Action";
 const Home = () => {
     const [blog, setBlog] = useState([])
     const state = useSelector(state => state.FetchAPI)
-    console.log('print', state);
+    // console.log('print', state);
     const dispatch = useDispatch()
     useEffect(() => {
         const checklocal = JSON.parse(localStorage.getItem('All-Post'))
         console.log(checklocal);
         try {
             if (state) {
-                axios.get('http://localhost:8000/blog/')
+                axios.get('http://localhost:9000/api/v1/blogApi')
                     .then(function (response) {
                         setBlog(response.data)
                         dispatch(valueUpdate(response.data))
                         //console.log(setBlog);
                     })
                     .catch(function (error) {
-                        console.log(error);
+                        console.log('here', error);
                     })
                 localStorage.setItem('All-Post', JSON.stringify(blog));
             } else {
