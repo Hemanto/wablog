@@ -28,7 +28,7 @@ function BlogCard(props) {
             <li className='blog-list'>
                 <Link className="blog-link" to={props.path}>
                     <figure className="blog-image-wrap">
-                        <img src={props.src} alt="Blog Image" className="blog-image" />
+                        <img src={'http://localhost:8000' + props.src} alt="Blog Image" className="blog-image" />
                     </figure>
                     <div className="blog-info">
                         <h5 className="blog-text">{props.text}</h5>

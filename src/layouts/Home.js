@@ -16,7 +16,7 @@ const Home = () => {
         console.log(checklocal);
         try {
             if (state) {
-                axios.get('http://localhost:9000/api/v1/blogApi')
+                axios.get('http://localhost:8000/api/v1/blogApi/')
                     .then(function (response) {
                         setBlog(response.data)
                         dispatch(valueUpdate(response.data))

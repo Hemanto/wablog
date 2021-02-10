@@ -3,7 +3,6 @@
 
 // const Login = () => {
 //     const [user, setUser] = useState({ user: '' })
-
 //     const authListner = () => {
 //         fire.auth().onAuthStateChanged((user) => {
 //             if (user) {
@@ -60,55 +59,44 @@
 
 // export default Login
 
-import React, { useState } from 'react'
+import React, { useState, useRef, useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import axios from 'axios'
+// import axios from 'axios'
+import { useDispatch } from 'react-redux'
+import { register } from '../store/actions/Action'
+import { loginUser } from "../config"
+
+
 const Login = () => {
+
+
+    const input = useRef(null)
+    console.log(input)
+    useEffect(() => {
+        console.log("in e", input.current.value = "sam")
+
+    }, [])
     const [state, setstate] = useState({
-        email: "",
+        username: '',
         password: ""
     })
+
+    const dispatch = useDispatch()
+
 
     const handelChange = (e) => {
         setstate({ ...state, [e.target.name]: e.target.value })
     }
-    const login = () => {
-        // axios hit
-        // access, refresh
-        //
-        // const timeout = 2*24*3600*1000
-        // setTimeout(() => {
-        // relog()
-
-        // }, timeout);
-        // cpnst relog =()=> {
-        //axios hit refresh tocken
-        // change access token and refresh token in storage
-        // }
-        // axios.post('http://localhost:9000/api/v1/userAPI/login/', {
-        //     "username": state.email,
-        //     "password": state.password
-        // }).then(res => {
-        //     console.log(res)
-        // }).catch(err => {
-        //     console.log(err)
-        // })
-        axios.get('http://localhost:9000/api/v1/userAPI/logout/').then(res => {
-            console.log(res, 'here')
-        }).catch(
-            err => {
-                console.log(err, 'here')
-            }
-        )
-        console.log(state)
+    const login = async () => {
+        const user = await loginUser(state)
+        dispatch(register(await user))
     }
 
     return (
         <div style={{ margin: 50 }}>
-            <input type='email' id='email' placeholder='username' value={state.email} name='email' onChange={e => handelChange(e)} /> <br /><br />
+            <input ref={input} type='text' id='email' placeholder='username' value={state.username} name='username' onChange={e => handelChange(e)} /> <br /><br />
             <input type='password' id='password' placeholder='password' name='password' value={state.password} onChange={e => handelChange(e)} /> <br />
             <button onClick={login}>Login</button>
-            {/* <button onClick={login}>login</button> */}
 
 
             <Link to='/Sign' className="Sign-i">
