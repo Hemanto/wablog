@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 import { useParams } from 'react-router-dom'
 import '../Styles/BlogDetails.css'
 import { useSelector, useDispatch } from "react-redux";
+import Login from './Login';
+
 
 const Details = () => {
     // const [allpost, setAllpost] = useState(JSON.parse(localStorage.getItem('All-Post')) || [])
