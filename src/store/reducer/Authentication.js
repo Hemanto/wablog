@@ -1,5 +1,4 @@
-import axios from "axios"
-import { REGISTER } from "../actions/Action"
+import { REGISTER, LOG_OUT } from "../actions/Action"
 
 const initialState = {
     authenticated: false,
@@ -12,13 +11,16 @@ const initialState = {
 const Authentication = (state = initialState, action) => {
     switch (action.type) {
         case REGISTER:
-            console.log(action.data)
+            console.log('actions', action.data)
             const user = action.data
+            console.log('firstname', user.first_name);
             return {
                 authenticated: true,
                 user: user.user,
                 userToken: user.token,
             }
+        case LOG_OUT:
+            return initialState;
         // console.log(user)
         default:
             return state;
